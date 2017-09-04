@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	
+<head>
+	
+ <script type="text/javascript">
+ function formValidation(){
+    var name     = document.getElementById('name').value;
+    var email    = document.getElementById('email').value;
+    var phone    = document.getElementById('phone').value;
+	var subject  = document.getElementById('subject').value;
+	var alphaExp = /^[A-Za-z ]{3,50}$/;;
+	var emailexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[a-z]{2,3})$" ;
+    var numericExp = /^[0-9+-]+$/;
+	
+if(name == '')
+{
+alert('Please Enter Name') ;
+document.getElementById("name").focus();
+return false;
+}
+else if(!name.match(alphaExp) && name != ''){
+      alert('Please use only letters (a-z,A-Z)');
+      document.getElementById("name").focus();
+	  document.getElementById("name").style.cssText = "border:1px solid red !important" ;
+      return false;
+  }
+else if(email == '')
+{
+  alert('Please Enter Email') ;
+  document.getElementById("email").focus();
+  return false;
+}
+else if(!email.match(emailexp) && email != ''){
+    
+     alert('Please enter valid Email Address');
+     document.getElementById("email").focus();
+     document.getElementById("email").style.cssText = "border:1px solid red !important" ;
+     return false;
+ }
+else if(phone == '')
+{
+alert('Please Enter Phone') ;
+document.getElementById("phone").focus();
+return false;
+}
+else if(!phone.match(numericExp) && phone != ''){
+    alert('Please enter valid phone.');
+    document.getElementById("phone").focus();
+	document.getElementById("phone").style.cssText = "border:1px solid red !important" ;
+        return false;
+  }
+else if(subject == '')
+{
+alert('Please Enter Subject') ;
+document.getElementById("subject").focus();
+return false;
+}
+else
+    {
+       return true; 
+    } 
+}
+ </script>
+    </head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+			  <div class="clr"></div>
+			</div>
+			<div class="content">
+		
+			  <div class="aboutcol">
+			<h2>&nbsp;</h2>
+			<h2>Contact Us</h2>
+			<p>&nbsp;</p>
+			<p>
+			<form method="post" action="email.php" onsubmit="return formValidation();">
+              <p><strong>Name:</strong><span style="color:red;">*</span><br />
+                <input name="name" id="name" type="text" size="50" maxlength="65">
+                <br />
+  <br>
+              <strong>Email:</strong><span style="color:red;">*</span><br />
+              <input name="email" id="email" type="text" size="50" maxlength="65">
+              </p>
+              <p>
+                <label><strong>Phone:</strong><span style="color:red;">*</span><br />
+                <input name="phone" type="text" id="phone" size="25" maxlength="15" />
+                </label>
+              </p>
+              <p>
+                <label><strong>Message:</strong><span style="color:red;">*</span><br />
+                  <textarea name="comment" cols="60" rows="4" id="subject"></textarea>
+                </label>
+              </p>
+              
+               <!-- <input type="hidden" name="realname" value="Contact Form">
+                <input type="hidden" name="redirect" value="./thankyou.html">
+                <input type="hidden" name="subject" value="Inquiry From Your Web Form">
+                <input type="hidden" name="recipient" value="1"> -->
+                <input type="submit" name="Submit" value="Submit">
+                <input type="reset" name="clear" value="Clear it">
+              
+            </form>
+</div>
+			  <div class="clr"></div>
+			</div>
+			<div id="main">
+			  <div class="clr"></div>
+			</div>
+			
+		</div>
+	</body>
+
+</html>
